@@ -3,6 +3,9 @@ const request = require('request');
 const bodyParser = require('body-parser')
 const https = require('https');
 const { post } = require('request');
+require('dotenv').config();
+
+console.log(process.env);
 
 
 
@@ -37,11 +40,11 @@ var data = {
 
 const jsonData = JSON.stringify(data);
 
-const url = "https://us12.api.mailchimp.com/3.0/lists/420bf6f8f1";
+const url = "https://us12.api.mailchimp.com/3.0/lists/process.env.LIST_ID";
 
 const options = {
     method:"POST",
-    auth: "nitesh:982702010382868ce86f0ef509263072-us12"
+    auth: "nitesh:process.env.API_KEY;"
 }
 
 const request = https.request(url,options,function(response)
@@ -78,8 +81,3 @@ app.listen(process.env.PORT || 3000,function()
     console.log("server is running on port 3000");
 })
 
-//Mailchip API key
-// 982702010382868ce86f0ef509263072-us12
-
-//List ID
-//420bf6f8f1
